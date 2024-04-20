@@ -1,10 +1,11 @@
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
-  host: "sql6.freesqldatabase.com",
-  user: "sql6697602",
-  password: "AMv1vQGNZ1",
-  database: "sql6697602"
+  host: "hvr-save-data-hvrsave.d.aivencloud.com",
+  user: "avnadmin",
+  password: "AVNS_IcjmrPjcsbuhP4OZY8E",
+  database: "hvr_data",
+  port: 10002
 });
 
 con.connect(function(err) {

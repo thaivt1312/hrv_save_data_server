@@ -11,13 +11,14 @@ var io = require("socket.io")(server, {
     },
 });
 
-var mysql = require('mysql');
+var mysql = require('mysql2');
 
 var con = mysql.createConnection({
-    host: "sql6.freesqldatabase.com",
-    user: "sql6697602",
-    password: "AMv1vQGNZ1",
-    database: "sql6697602"
+    host: "hvr-save-data-hvrsave.d.aivencloud.com",
+    user: "avnadmin",
+    password: "AVNS_IcjmrPjcsbuhP4OZY8E",
+    database: "defaultdb",
+    port: 10002
 });
 
 con.connect(function (err) {
@@ -49,21 +50,21 @@ function generateToken(length) {
 }
 
 app.get("/", function (req, res) {
-    res.send("uno express server");
+    res.send("Uno express test server");
 });
 
 app.post("/saveHeartRateData", function (req, res) {
     var data = req.body;
     console.log(data);
-    var sql = `INSERT INTO hr_info (
-        hr_info, name, age, gender, weight, height, health_condition
+    var sql = `INSERT INTO hrv_data (
+        id, raw, name, age, gender, weight, height, health_condition
     ) VALUES (
-        '${data.hr_info}', '${data.name}', '${data.age}', '${data.gender}', '${data.weight}', '${data.height}', '${data.health_condition}'
+        '${data.id}', '${data.raw}', '${data.name}', '${data.age}', '${data.gender}', '${data.weight}', '${data.height}', '${data.health_condition}'
     )`;
     con.query(sql, function (err, result) {
         if (err) throw err;
         console.log("1 record inserted");
-        res.send("Done");
+        res.send("Done! 1 record inserted.");
     });
 });
 
