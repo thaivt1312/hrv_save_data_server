@@ -54,7 +54,7 @@ app.get("/", function (req, res) {
 });
 
 app.post("/saveHeartRateData", function (req, res) {
-    var data = req.body;
+    var data = req.body.data;
     console.log(data);
     var sql = `INSERT INTO hrv_data (
         id, raw, peaks, pulse, times, date, filtered, name, age, gender, weight, height, health_condition
