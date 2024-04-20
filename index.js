@@ -57,9 +57,9 @@ app.post("/saveHeartRateData", function (req, res) {
     var data = req.body;
     console.log(data);
     var sql = `INSERT INTO hrv_data (
-        id, raw, name, age, gender, weight, height, health_condition
+        id, raw, peaks, pulse, times, date, filtered, name, age, gender, weight, height, health_condition
     ) VALUES (
-        '${data.id}', '${data.raw}', '${data.name}', '${data.age}', '${data.gender}', '${data.weight}', '${data.height}', '${data.health_condition}'
+        '${data.id}', '${data.raw}', '${data.peaks}, '${data.pulse}', '${data.times}', '${data.date}', '${data.filtered}',  '${data.name}', '${data.age}', '${data.gender}', '${data.weight}', '${data.height}', '${data.health_condition}'
     )`;
     con.query(sql, function (err, result) {
         if (err) throw err;
