@@ -54,6 +54,7 @@ app.get("/", function (req, res) {
 });
 
 app.post("/saveHeartRateData", function (req, res) {
+    console.log(req.body);
     var data = req.body.data;
     console.log(data);
     var sql = `INSERT INTO hrv_data (
